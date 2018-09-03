@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/Public/Plug/h-ui_v3.0/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/Public/Plug/h-ui_v3.0/lib/respond.min.js"></script>
+    <![endif]-->
+    <link href="/Public/Plug/h-ui_v3.0/static/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="/Public/Plug/h-ui_v3.0/static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css">
+    <link href="/Public/Plug/h-ui_v3.0/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/Public/Plug/h-ui_v3.0/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css">
+    <!--[if IE 6]>
+    <script type="text/javascript" src="/Public/Plug/h-ui_v3.0/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>金兔宝宝</title>
+    <style type="text/css">
+        .red{color: red}
+    </style>
+</head>
+<body>
+<div class="loginWraper">
+    <div id="loginform" class="loginBox" method="POST">
+        <form class="form form-horizontal" action="/Agent/login/submit" method="post">
+            <div class="row cl">
+                <label class="form-label col-xs-3"><i class="Hui-iconfont"></i></label>
+                <div class="formControls col-xs-8">
+                    <input id="account" name="account" type="text" placeholder="账户" class="input-text size-L" value="">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3"><i class="Hui-iconfont"></i></label>
+                <div class="formControls col-xs-8">
+                    <input id="pwd" name="pwd" type="password" placeholder="密码" class="input-text size-L" value="">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3"></label>
+                <div class="formControls col-xs-8 red">
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <input type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;" style="width: 90%">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="/Public/Plug/h-ui_v3.0/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/Public/Plug/h-ui_v3.0/static/h-ui/js/H-ui.min.js"></script>
+
+</body><div id="transAutoBox" style="display: none;"><translatebox id="transAutoBox_ptitle">自动翻译已开启</translatebox><div id="transAutoBox_cancle">去设置</div><div id="transAutoBox_close" style="background: url(&quot;chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/BtnClose2Normal.png&quot;) center center no-repeat;"></div></div><div id="trans_box" style="display: none;"><img id="trans_finish" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/IconFinsh.png"><translatebox id="trans_ptitle">是否将当前网页翻译成中文?</translatebox><div id="trans_Close"><div id="trans_spanPic" style="background: url(&quot;chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/arrowdownNormal.png&quot;) center center no-repeat;"></div><ul id="trans_buttonfalselist"><li class="buttonfalselistLi thisNoTip">此网站不再提醒</li><li class="buttonfalselistLi allNoTip">所有网站不再提醒</li></ul><div id="trans_buttonfalse">关闭</div></div><button id="trans_buttonCompare">中英对照</button><button id="trans_buttontrue">翻译网页</button></div><div id="onLineTransBu" style="display: none;"><img id="trans_loading" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/loading.gif">网页翻译中...</div><div id="onLineFailResult" style="display: none;">翻译失败...</div><div id="compareOuter" style="position: absolute; display: block; height: 479px; left: -1920px;"><div id="compareInner"><h1 id="titleCompareUp"></h1><h1 id="titleCompareDown"></h1><div id="innerLeft"></div><div id="innerRight"></div></div><div id="compareLoading"><img id="comparing" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/loading.gif">正在翻译...</div><div id="compareTranStatus" style="display: none;"><img id="comparingStatus" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/loading.gif">正在初始化...</div><div id="compareFail"><img id="compareFailImg" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/ImgError.png"><h1 id="transFail">翻译失败</h1><p id="transP">未能获得中英文对照翻译结果</p><div id="buttonBottom"><button id="againButton">重试</button><button id="returnButton">返回</button></div></div><div id="closeCompare" style="display: none;"><a id="feedBackTrans" target="_blank" href="http://bbs.browser.qq.com/thread-241037-1-1.html">我要反馈</a><div id="closeDiv"><p>退出翻译</p><img id="closeImg" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/timg.png"></div></div><div id="whiteDiv"></div><div id="pageGoDiv" style="display: none;"><div id="pageGo"><button id="goPre" disabled="">上一页</button><div id="number"><span id="centerNum"><div class="selectPage"><div id="pre">1</div><ul class="selectList"></ul></div><span style="float: left;">/</span><p id="nextPage"></p></span><img id="pageArrow" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/pageSelect.png"></div><button id="goNext">下一页</button></div><div id="scrollRealBar"><div id="scrollRealBarHeight"></div></div></div></div><div id="pdfTip"><div id="pdfTipWord"><p>支持翻译PDF和WORD文档</p><p>支持将英文翻译成中文</p><p id="bestExperience">要获取最佳完整体验，请将浏览器升级到最新版</p></div><div id="pdfTipButton"><button id="uploadWord">上传文档</button><button id="pdfTipClose">关闭</button></div></div><div id="yiButton" style="display: none;">翻译</div><div id="C_outerbox_trans_div" class="C_outerbox_up" style="display: none;"><div id="C_cententbox_trans_div"><div id="cententbox_beforeFixBox"><p id="C_ptitle_trans_p">原文</p><p id="C_esay_trans_p"></p><div id="C_bottomdiv_trans_div"><img id="C_bottomimg_trans_img" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/img_logo.png" style="cursor: pointer;"><a id="C_bottoma_trans_a">翻译纠错<img id="hrefa" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/IconArrowRight.png"></a></div></div><div id="cententbox_afterFixBox"><p id="cententbox_trans_fix_error">翻译纠错</p><div id="cententbox_trans_fix_box"><textarea id="cententbox_trans_fix_content"></textarea><button id="cententbox_comfirmfix">确定</button></div></div></div><div id="C_innerbox_trans_div" class="C_innerbox_up"></div></div><div id="trans_yiwen_outerDiv" class="C_outerbox_up" style="display: none;"><div id="trans_yiwen_content"><div id="beforeFixBox"><p id="trans_yiwen_title">译文</p><p id="trans_yiwen_easy"></p><div id="trans_yiwen_bottomdiv"><img id="trans_yiwen_bottom_img" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/img_logo.png" style="cursor: pointer;"><a id="trans_yiwen_bottom_a">翻译纠错<img id="trans_yiwen_bottom_a_img" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/IconArrowRight.png"></a></div></div><div id="afterFixBox"><p id="trans_fix_error">翻译纠错</p><div id="trans_fix_box"><textarea id="trans_fix_content"></textarea><button id="comfirmfix">确定</button></div></div></div><div id="trans_yiwen_innerDiv" class="C_innerbox_up"></div></div><div id="trans_word_outerDiv" class="C_outerbox_up" style="display: none;"><div id="trans_word_content"><div id="trans_word_head"><p id="trans_word_title"></p><p id="trans_word_easy"></p></div><div id="eachcharadiv"></div><div id="trans_word_bottomdiv"><img id="trans_word_bottom_img" src="chrome-extension://hlppekcioiicbfafmmgikkdkljnjpiao/images/img_logo.png" style="cursor: pointer;"></div></div><div id="trans_word_innerDiv" class="C_innerbox_up"></div></div></html>
