@@ -1,0 +1,331 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>贷款</title>
+    <link rel="stylesheet" href="https://www.weixin2910.top/addons/fy_loan_page/template/static/weui.min.css" />
+    <link rel="stylesheet" href="https://www.weixin2910.top/addons/fy_loan_page/template/static/jquery-weui.css" />
+    <link rel="stylesheet" href="https://www.weixin2910.top/addons/fy_loan_page/template/static/public.css" />
+    <link rel="stylesheet" href="https://www.weixin2910.top/addons/fy_loan_page/template/static/iconfont.css" />
+    <link rel="stylesheet" href="https://www.weixin2910.top/addons/fy_loan_page/template/static/loan.css" />
+    <script src="https://www.weixin2910.top/addons/fy_loan_page/template/static/jquery.js"></script>
+    <script src="https://www.weixin2910.top/addons/fy_loan_page/template/static/rem.js"></script>
+    <script src="https://www.weixin2910.top/addons/fy_loan_page/template/static/public.js"></script>
+    <script>
+        $(function(){
+            $(".load").hide();
+        })
+    </script>
+</head>
+<body id="loan" style="overflow:inherit">
+<div class="load" style="width: 100%;height: 100%;background:#EDF3FF;position: absolute;left: 0;top:0;z-index: 9999999;"></div>
+<div class="weui-tab">
+    <div class="box">
+        <div class="weui-navbar-box">
+            <div class="weui-navbar">
+                <a class="weui-navbar__item weui-bar__item--on" href="#tab1" id="tab_title1">借贷大全</a>
+                <a class="weui-navbar__item" href="#tab2" id="tab_title2">周周新</a>
+            </div>
+        </div>
+    </div>
+    <div class="weui-tab__bd">
+        <!--基本信息-->
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active default">
+            <div class="date"></div>
+            <div class="loan"></div>
+        </div>
+        <div id="tab2" class="weui-tab__bd-item default">
+            <div class="date"></div>
+            <div class="loan">
+                <div class="loan_list"><ul></ul></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hint">
+    <div class="title">提示</div>
+    <div class="con" id="con"></div>
+    <div class="btn">
+        <a href="" id="one"></a> <i></i> <a href="" id="two"></a>
+    </div>
+</div>
+<div class="mask"></div>
+<!--<script src="https://www.weixin2910.top/addons/fy_loan_page/template/static/loan_list.js"></script>-->
+<script>
+    $(function(){
+        $(".weui-tab__bd").height($(window).height()-$(".box").height());
+        var obj={
+            0:{
+                title:"热门爆款推荐",
+                info:[{
+                    platformId:"1",
+                    platform:"人气借",
+                    describe:"7天续借，随借随还",
+                    icon:"1.png",
+                    url:"http://www.jietiao178.com//mob/member/reg/acode/NYPYW39Z8R.html"
+                },{
+                    platformId:"4",
+                    platform:"91账单",
+                    describe:"下款快，日利率0.01%",
+                    icon:"4.jpg",
+                    url:"https://h5.91zdan.com/?channelId=ddh1&ignore"
+                },{
+                    platformId:"5",
+                    platform:"零零期",
+                    describe:"额度高，日利率0.05%",
+                    icon:"5.png",
+                    url:"https://m.007fenqi.com/app/family/wxm/index.html#/login/new?channel=huahuabaika"
+                },{
+                    platformId:"2",
+                    platform:"秒喵贷",
+                    describe:"快捷、门槛低 随借随还",
+                    icon:"2.jpg",
+                    url:"http://www.hangzhourongyi.com/mmd/?from=hz1"
+                }]
+            },
+            1:{
+                title:"极速下款推荐",
+                info:[{
+                    platformId:"3",
+                    platform:"瞬闪贷",
+                    describe:"无抵押，随用随取",
+                    icon:"3.png",
+                    url:"http://wap.shunshandai.com/index.php/home/login/r/sign/6f4da60adab5d42b82bfc016dd258fa4"
+                },/*{
+                 platformId:"7",
+                 platform:"花钱月上",
+                 describe:"无抵押,零担保,额度高",
+                 icon:"7.jpg",
+                 url:"http://ddt.qizixiangqian.com/static/views/invite_reg.jsp?channel_source=19"
+                 },*/{
+                    platformId:"9",
+                    platform:"借几天",
+                    describe:"2小时急速放款",
+                    icon:"9.png",
+                    url:"https://jst.51duanqidai.com/user/spread?channel=huahuabaika"
+                },{
+                    platformId:"8",
+                    platform:"闪信贷",
+                    describe:"极速借款，一键借款",
+                    icon:"8.jpg",
+                    url:"https://m.trustrock.com.cn/index.html?tracker_u=XJ_BESTM_BESTM10&hmsr=A%E7%B1%BB&hmpl=BESTM&hmcu=BESTM10&hmkw=&hmci="
+                },{
+                    platformId:"21",
+                    platform:"华能速贷",
+                    describe:"通过率高 下款快",
+                    icon:"21.png",
+                    url:"http://huaneng.julangjietiao.cn/?fid=5252"
+                }]
+            },
+            2:{
+                title:"高通过率推荐",
+                info:[{
+                    platformId:"18",
+                    platform:"迅速现金",
+                    describe:"光速审核秒放款",
+                    icon:"18.png",
+                    url:"http://sj.jieduoduo.tengjin.com/sujie?channel=G09EOY"
+                },{
+                    platformId:"16",
+                    platform:"现金的士",
+                    describe:"额度灵活、审核快",
+                    icon:"16.png",
+                    url:"http://api.cashtaxi.cn/pop/weixin/18817312175/qd86"
+                },{
+                    platformId:"15",
+                    platform:"好易借",
+                    describe:"最快30秒放款",
+                    icon:"15.jpg",
+                    url:"https://www.hzed.com/activity/wx2017042001/?hfrom=tongdun"
+                },{
+                    platformId:"20",
+                    platform:"51闪电贷",
+                    describe:"周期短 小额度 放款快",
+                    icon:"20.jpg",
+                    url:"http://tg.51sddai.com/?platform=lgcuS4uyTbCbfmDI6XEt7Q%3D%3D"
+                }/*,{
+                 platformId:"19",
+                 platform:"找钱花",
+                 describe:"急速放款，手续简单",
+                 icon:"19.png",
+                 url:"http://api.huoyanzichan.com/weixinH5/templates/regin.html?channelId=39"
+                 }*/]
+            },
+            3:{
+                title:"最新口子推荐",
+                info:[{
+                    platformId:"17",
+                    platform:"新浪有借",
+                    describe:"通过率高，利率低",
+                    icon:"17.jpg",
+                    url:"http://h.sinaif.com/loginCommon?codeKey=1001_s6824050_001"
+                },{
+                    platformId:"10",
+                    platform:"现金借钱",
+                    describe:"30分钟审批,2小时到账",
+                    icon:"10.jpg",
+                    url:"http://weixin.01dai.com/index.php/Home/Acount/regist?dpcode=XC6809NC1BC9A17G"
+                },{
+                    platformId:"6",
+                    platform:"51零用钱",
+                    describe:"最快5分钟放款",
+                    icon:"6.png",
+                    url:"https://web.u51.com/lyq-register/?notwakeup=true&from=lyq_xj63&channel=lyq_xj63&at=CSnm4D"
+                },{
+                    platformId:"11",
+                    platform:"开心钱包",
+                    describe:"三分钟极速放贷",
+                    icon:"11.jpg",
+                    url:"https://channel.kxqianbao.com/h5/extension?invite_code=ahaj3o&user_from=827&appName=kxqb  "
+                }]
+            },
+            4:{
+                title:"零信用推荐",
+                info:[{
+                    platformId:"12",
+                    platform:"现金在线",
+                    describe:"让借钱更省心",
+                    icon:"12.png",
+                    url:"http://h5.51xjzx.com/promote?promoteType=jyq&invite_code=MTU4Nzg3NA==&user_from=295"
+                },{
+                    platformId:"13",
+                    platform:"贷款123",
+                    describe:"小额贷款秒借1000元",
+                    icon:"13.jpg",
+                    url:"http://www.shebaodai.cn/guide-page/DaiKuanLogin.html?channel=201708huahd"
+                },{
+                    platformId:"14",
+                    platform:"给你用",
+                    describe:"3分钟极速审批",
+                    icon:"14.png",
+                    url:"http://tg.geiniyong.com/act/light-loan-xjx-beta?invite_code=NjA5ODU4&user_from=752"
+                }]
+            }
+        }
+
+        var obj3={
+            info:[{
+                platformId:"1",
+                platform:"人气借",
+                describe:"7天续借，随借随还",
+                icon:"1.png",
+                url:"http://www.jietiao178.com//mob/member/reg/acode/NYPYW39Z8R.html"
+            },{
+                platformId:"4",
+                platform:"91账单",
+                describe:"下款快，日利率0.01%",
+                icon:"4.jpg",
+                url:"https://h5.91zdan.com/?channelId=ddh1&ignore"
+            },{
+                platformId:"5",
+                platform:"零零期",
+                describe:"额度高，日利率0.05%",
+                icon:"5.png",
+                url:"https://m.007fenqi.com/app/family/wxm/index.html#/login/new?channel=huahuabaika"
+            },{
+                platformId:"2",
+                platform:"秒喵贷",
+                describe:"快捷、门槛低 随借随还",
+                icon:"2.jpg",
+                url:"http://www.hangzhourongyi.com/mmd/?from=hz1"
+            },{
+                platformId:"3",
+                platform:"瞬闪贷",
+                describe:"无抵押，随用随取",
+                icon:"3.png",
+                url:"http://wap.shunshandai.com/index.php/home/login/r/sign/6f4da60adab5d42b82bfc016dd258fa4"
+            },/*{
+             platformId:"7",
+             platform:"花钱月上",
+             describe:"无抵押,零担保,额度高",
+             icon:"7.jpg",
+             url:"http://ddt.qizixiangqian.com/static/views/invite_reg.jsp?channel_source=19"
+             },*/{
+                platformId:"9",
+                platform:"借几天",
+                describe:"2小时急速放款",
+                icon:"9.png",
+                url:"https://jst.51duanqidai.com/user/spread?channel=huahuabaika"
+            }]
+        }
+
+        //借贷大全
+        $.jpost("./index.php?i=135&c=entry&do=info&m=fy_loan_page","",function(data){
+            if(data.code=="0000"){
+                var data=JSON.parse(data.data);
+//                var data=data.data;
+                console.log(data);
+
+                $.each(data,function(i,item){
+                    var item=item.obj;
+
+                    if(item.title=="周周新"){
+                        $.each(item.info,function(i1,item1){
+                            //if(!sessionStorage.getItem("count"+item1.platformId)){
+                            //	sessionStorage.setItem("count"+item1.platformId,parseInt(100000*Math.random()+10000));
+                            //}
+                            $('<li url="'+item1.url+'" platid="'+item1.platformId+'" platName="'+item1.platformName+'"><a href="javascript:;"><div class="loan_list_icon" style="background:url('+item1.ico+') no-repeat center;background-size:contain;"></div> <div class="loan_list_describe"> <span>'+item1.platformName+'</span> <span>'+item1.describeContent+'</span> </div></a></li>').appendTo("#tab2 ul");
+                        })
+                    }else{
+
+                        var info=item.info;
+                        if(info.length!=0){
+                            $('<div class="loan_list" id="'+i+'"><span>'+item.title+'</span><ul></ul></div>').appendTo("#tab1 .loan");
+                            $.each(item.info,function(i1,item1){
+                                //if(!sessionStorage.getItem("count"+item1.platformId)){
+                                //	sessionStorage.setItem("count"+item1.platformId,parseInt(100000*Math.random()+10000));
+                                //}
+                                $('<li url="'+item1.url+'" platid="'+item1.platformId+'" platName="'+item1.platformName+'"><a href="javascript:;"><div class="loan_list_icon" style="background:url('+item1.ico+') no-repeat center;background-size:contain;"></div> <div class="loan_list_describe"> <span>'+item1.platformName+'</span> <span>'+item1.describeContent+'</span> </div></a></li>').appendTo("#"+i+">ul");
+                            })
+                        }
+                    }
+
+
+
+                })
+            }
+        },function(){})
+
+
+        //周周新
+
+    })
+</script>
+<script src="https://www.weixin2910.top/addons/fy_loan_page/template/static/jquery-weui.js"></script>
+<script>
+
+    $(function() {
+        var openId = 'oHY9p1p6ciGK5tEozxImnWi9v0Sc';
+        var type='';
+        var myDate = new Date();
+        var month=myDate.getMonth()+1;
+        var date=myDate.getDate();
+        $(".date").html(month+"月"+date+"日更新");
+        if(type==2){
+            $("#tab_title1").removeClass("weui-bar__item--on").siblings().addClass("weui-bar__item--on");
+            $("#tab2").addClass("weui-tab__bd-item--active").siblings().removeClass("weui-tab__bd-item--active");
+        }
+
+        $(".loan_list>ul>li").on("click",function(){
+            var url=$(this).attr("url");
+            var that=this;
+            var platformId=$(that).attr("platid");
+            var platformName=$(that).attr("platname");
+            var param={
+                platformId:platformId,
+                platformName:platformName,
+                openId:openId
+            }
+            $.jPostf("/platform/addPlatformClick.xhtm",param,function(data){
+                console.log(data)
+            })
+            location.href = url;
+        })
+    });
+</script>
+<script>var imgs = document.getElementsByTagName('img');for(var i=0, len=imgs.length; i < len; i++){imgs[i].onerror = function() {if (!this.getAttribute('check-src') && (this.src.indexOf('http://') > -1 || this.src.indexOf('https://') > -1)) {this.src = this.src.indexOf('https://www.weixin2910.top/attachment/') == -1 ? this.src.replace('http://chucun.mefuu.com/', 'https://www.weixin2910.top/attachment/') : this.src.replace('https://www.weixin2910.top/attachment/', 'http://chucun.mefuu.com/');this.setAttribute('check-src', true);}}};</script><script type="text/javascript" src="https://www.weixin2910.top/app/index.php?i=135&c=utility&a=visit&do=showjs&m=fy_loan_page"></script></body>
+</html>
