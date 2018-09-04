@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '127.0.0.1',
+    'hostname'        => '39.104.163.186',
     // 数据库名
     'database'        => 'shop_agoodcat_c',
     // 用户名
     'username'        => 'shop_agoodcat_c',
     // 密码
-    'password'        => 'shop_agoodcat_c',
+    'password'        => 'iKzCzeDymD6WntdX',
     // 端口
     'hostport'        => '3306',
     // 连接dsn
