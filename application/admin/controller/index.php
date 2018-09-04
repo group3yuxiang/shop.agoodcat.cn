@@ -14,7 +14,7 @@ class Index extends Controller
     public function login($name = '', $password = '') {
         $user = Admin::get([
             'name' => $name,
-            'passwd' => $password
+            'password' => $password
         ]);
         if($user){
             echo '登录成功'.$name.md5($name);
