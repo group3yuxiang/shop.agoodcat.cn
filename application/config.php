@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-
+error_reporting(E_ERROR | E_PARSE );
 return [
     // +----------------------------------------------------------------------
     // | 应用设置
@@ -139,7 +139,12 @@ return [
     ],
 
     // 视图输出字符串内容替换
-    'view_replace_str'       => [],
+    'view_replace_str'       => [
+        '__CSS__'     => '/static/css',
+        '__JS__'      => '/static/js',
+        '__IMG__'     => '/static/images',
+        '__UPLOADS__' => '/uploads/',
+    ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

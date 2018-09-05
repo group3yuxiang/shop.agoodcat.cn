@@ -37,6 +37,27 @@
         <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active default">
             <div class="date"></div>
             <div class="loan">
+                {volist name="data" id="vo"}
+                    {if condition="is_array($vo.product)"}
+                    <div class="loan_list" id="0">
+                        <span>{$vo.name}</span>
+                        <ul>
+                            {volist name="vo.product" id="p"}
+                            <li url="./index.php?i=135&amp;c=entry&amp;url=aHR0cDovL3luanIuZmFuemhvdXRlY2guY29tL21vYmlsZS9hcHBseWZvcm0%2FcGFyPTZEMUVFODlEODQxRUUzMDU1MEQ0MTREOTVCRjY2NUYz&amp;do=open&amp;m=fy_loan_page" platid="24" platname="海马钱包">
+                                <a href="{$p.url}">
+                                    <div class="loan_list_icon" style="background:url('__UPLOADS__/{$p.logo}') no-repeat center;background-size:contain;"><img src="__UPLOADS__/{$p.logo}" height="100%" width="100%"></div>
+                                    <div class="loan_list_describe">
+                                        <span>{$p.name}</span>
+                                        <span>{$p.comment}</span>
+                                    </div>
+                                </a>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                    {/if}
+                {/volist}
+                <!--
                 <div class="loan_list" id="0">
                     <span>极速下款推荐</span>
                     <ul>
@@ -86,6 +107,7 @@
                             </a>
                         </li>
                     </ul>
+                    -->
                 </div>
             </div>
         </div>

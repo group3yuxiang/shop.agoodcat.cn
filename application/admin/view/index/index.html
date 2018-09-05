@@ -1,0 +1,45 @@
+{include file="public/head"}
+<body>
+<div class="container-fluid">
+    <div class="row">
+        {include file="public/menu"}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h2 class="sub-header">产品管理
+                <div class="pull-right">
+                    <a class="btn btn-default" href="{:url('index/product')}" role="button">添加</a>
+            </div>
+            </h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>logo</th>
+                        <th>名称</th>
+                        <th>备注</th>
+                        <th>权重</th>
+                        <th>所属类目</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="list" id="vo"}
+                    <tr>
+                        <td><img src="__UPLOADS__/{$vo.logo}" height="100" width="100"></td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.comment}</td>
+                        <td>{$vo.sort}</td>
+                        <td>{$vo.category}</td>
+                        <td>
+                            <a class="btn btn-default" href="{:url('index/Product', ['id' => $vo.id])}">edit</a>
+                            <a class="btn btn-default" href="{:url('index/deleteProduct', ['id' => $vo.id])}">delete</a>
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
