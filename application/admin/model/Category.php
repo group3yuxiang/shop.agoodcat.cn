@@ -17,7 +17,7 @@ class Category extends Model{
             $this->order = $order;
         }
         //todo 分页
-        $data = $this->all(function($query, $order){
+        $data = $this->all(function($query){
             //var_dump($this->pk);die;
             //$query->where('display', 1)->limit(3,5)->order('id', 'desc');
             $query->where('display', 1)->order($this->order, 'desc');
