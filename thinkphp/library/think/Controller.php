@@ -75,8 +75,8 @@ class Controller
     protected function _initialize()
     {
         $module_map = [
-            'jddq' => '借贷大全',
-            'zzx' => '周周新'
+            'jddq' => '热门产品',
+            'zzx' => '借贷大全'
         ];
         $index_action = 'index';
         $controller = strtolower(request()->controller());
