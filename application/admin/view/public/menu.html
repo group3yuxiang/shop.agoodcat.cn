@@ -1,6 +1,6 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
-        <li><a href="{:url('index/index')}">产品管理</a></li>
+        <li><a href="{:url('index/site')}">产品管理</a></li>
         <li><a href="{:url('category/index')}">类目管理</a></li>
     </ul>
     <!--
@@ -18,3 +18,7 @@
     </ul>
     -->
 </div>
+<ul class="nav nav-tabs col-sm-offset-3 col-md-10 col-md-offset-2 main" id="topTab">
+    <li role="presentation"><a href="{:url($tab_url, ['module' => 'jddq'])}">借贷大全</a></li>
+    <li role="presentation"><a href="{:url($tab_url, ['module' => 'zzx'])}">周周新</a></li>
+</ul>

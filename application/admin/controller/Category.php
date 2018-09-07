@@ -34,6 +34,7 @@ class Category extends Controller{
     public function doUpdate() {
         $model = new CategoryModel;
         $id = request()->param('save_id', 0);
+        $_POST['module'] = cookie('app_module');
         if ($id > 0) {
             $condition = ['id' => $id];
         }

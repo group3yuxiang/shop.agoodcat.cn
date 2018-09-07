@@ -11,6 +11,7 @@ use think\Model;
 class Product extends Model{
     protected $pk = 'id';
     protected $order = 'id';
+    protected $module = '';
 
     public function getList($page = 1, $pageSize = 30, $order = '') {
         if ($order) {
@@ -19,9 +20,8 @@ class Product extends Model{
         //todo 分页
         $data = $this->all(function($query){
             //$query->where('display', 1)->limit(3,5)->order('id', 'asc');
-            $query->where('display', 1)->order($this->order, 'desc');
+            $query->where(['display' => 1, 'module' => cookie('app_module')])->order($this->order, 'desc');
         });
-
         //$data = $this->all(['display' => 1]);
         return collection($data)->toArray();
     }

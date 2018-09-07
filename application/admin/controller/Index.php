@@ -13,6 +13,7 @@ class Index extends Controller{
         $this->assign([
             'admin' => cookie('user_name'),
         ]);
+        parent::_initialize();
     }
 
     public function index() {
@@ -64,7 +65,7 @@ class Index extends Controller{
         // 记录用户登录信息
         cookie('user_id', $has['id'], 3600);  // 一个小时有效期
         cookie('user_name', $has['name'], 3600);
-
+        cookie('app_module', 'jddq', 3600);
         $this->redirect(url('index/site'));
     }
 
@@ -85,25 +86,31 @@ class Index extends Controller{
         $this->assign([
             'admin' => cookie('user_name'),
             'list' => $list,
-            'category_list' => $category_list
+            'category_list' => $category_list,
+            'module' => APP_MODULE
         ]);
+        //echo APP_MODULE;die;
         return $this->fetch('index');
         //echo "您好： " . cookie('user_name') . ', <a href="' . url('index/loginout') . '">退出</a>';
     }
 
     public function loginOut() {
         cookie('user_id', null);
+        cookie('app_module', null);
         $this->redirect(url('index/index'));
     }
 
-    public function product($id = 0) {
+    public function product($id = 0, $module = '') {
         //$info = new Product;
         if ($id > 0) {
             $info = Product::get($id);
             $this->assign('info', $info);
         }
         $category_model = new Category;
-        $this->assign('category_list', $category_model->getList());
+        $this->assign([
+            'category_list' => $category_model->getList(),
+            'module' => $module
+        ]);
         return $this->fetch('productInfo');
     }
 
@@ -111,6 +118,7 @@ class Index extends Controller{
         //var_dump($_POST);die;
         // 获取表单上传文件 例如上传了001.jpg
         $save_data = $_POST;
+        $save_data['module'] = cookie('app_module');
         $id = request()->param('save_id', 0);
         $file = request()->file('logo');
         // 移动到框架应用根目录/public/uploads/ 目录下
@@ -118,7 +126,7 @@ class Index extends Controller{
             //$save_data['logo'] =  $info->getSaveName();
             $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
             if($info){
-                $image = Image::open($file->getRealPath());//生成缩略图
+                $image = Image::open($info->getRealPath());//生成缩略图
                 $image->thumb(309, 302,Image::THUMB_FIXED)->save(ROOT_PATH . 'public' . DS . 'uploads/' . $info->getSaveName());
                 // 成功上传后 获取上传信息
                 // 输出 jpg

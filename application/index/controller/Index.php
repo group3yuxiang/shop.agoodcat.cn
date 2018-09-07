@@ -8,6 +8,8 @@ use think\Controller;
 class Index extends Controller{
 
     public function index() {
+        $module = request()->param('module');
+        cookie('app_module', $module);
         $category_model = new Category;
         $product_model = new Product;
         $category_list = $category_model->getList(0, 0, 'sort');
@@ -25,7 +27,8 @@ class Index extends Controller{
         }
         $data = array_values($data);
         $this->assign([
-            'data' => $data
+            'data' => $data,
+            'm' => $module
         ]);
         //echo json_encode($data);die;
         //$this->view

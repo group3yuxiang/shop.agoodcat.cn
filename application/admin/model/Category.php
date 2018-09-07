@@ -11,6 +11,7 @@ use think\Model;
 class Category extends Model{
     protected $pk = 'id';
     protected $order = 'id';
+    protected $module = '';
 
     public function getList($page = 1, $pageSize = 30, $order = '') {
         if ($order) {
@@ -20,7 +21,7 @@ class Category extends Model{
         $data = $this->all(function($query){
             //var_dump($this->pk);die;
             //$query->where('display', 1)->limit(3,5)->order('id', 'desc');
-            $query->where('display', 1)->order($this->order, 'desc');
+            $query->where(['display' => 1, 'module' => cookie('app_module')])->order($this->order, 'desc');
         });
         //$data = $this->all(['display' => 1]);
         return collection($data)->toArray();

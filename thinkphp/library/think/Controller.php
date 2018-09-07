@@ -74,6 +74,24 @@ class Controller
      */
     protected function _initialize()
     {
+        $module_map = [
+            'jddq' => '借贷大全',
+            'zzx' => '周周新'
+        ];
+        $index_action = 'index';
+        $controller = strtolower(request()->controller());
+        if ($controller == $index_action) {
+            $index_action = 'site';
+        }
+        $module = request()->param('module');
+        if ($module) {
+            cookie('app_module', $module);
+        }
+        //echo cookie('app_module');die;
+        $this->assign([
+            'tab_url' => $controller . '/' . $index_action,
+            'app_module' => $module_map[cookie('app_module')]
+        ]);
     }
 
     /**
